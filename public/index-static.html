@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrainOps Control - Railway Management Dashboard</title>
+    <meta name="description" content="Professional railway operations control system for managing train schedules, conflicts, and performance monitoring">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="header-left">
+                <h1 class="logo">TrainOps Control</h1>
+                <div class="sim-controls">
+                    <button class="control-btn play-btn" id="playBtn">▶</button>
+                    <button class="control-btn pause-btn" id="pauseBtn">⏸</button>
+                    <div class="speed-control">
+                        <label>Speed:</label>
+                        <select class="speed-select">
+                            <option value="1">1x</option>
+                            <option value="2" selected>2x</option>
+                            <option value="4">4x</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="sim-time">14:32:15</div>
+                <div class="user-avatar">JD</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Grid -->
+    <main class="main-content">
+        <!-- Left: Station Map -->
+        <section class="station-map">
+            <div class="card">
+                <h2 class="card-title">Network Status</h2>
+                <div class="map-container">
+                    <div class="railway-line">
+                        <!-- Stations -->
+                        <div class="station regular" data-station="Thane">
+                            <div class="station-icon"></div>
+                            <span class="station-label">Thane</span>
+                            <div class="platforms">4 platforms</div>
+                        </div>
+                        
+                        <div class="station regular" data-station="Mulund">
+                            <div class="station-icon"></div>
+                            <span class="station-label">Mulund</span>
+                            <div class="platforms">2 platforms</div>
+                        </div>
+                        
+                        <div class="station junction" data-station="Bhandup">
+                            <div class="station-icon"></div>
+                            <span class="station-label">Bhandup</span>
+                            <div class="platforms">3 platforms</div>
+                        </div>
+                        
+                        <div class="station regular" data-station="Nahur">
+                            <div class="station-icon"></div>
+                            <span class="station-label">Nahur</span>
+                            <div class="platforms">2 platforms</div>
+                        </div>
+                        
+                        <div class="station regular" data-station="Vikhroli">
+                            <div class="station-icon"></div>
+                            <span class="station-label">Vikhroli</span>
+                            <div class="platforms">2 platforms</div>
+                        </div>
+                        
+                        <!-- Train Markers -->
+                        <div class="train-marker ontime" style="left: 20%;" data-train="TN-401">
+                            <div class="train-icon">🚆</div>
+                            <div class="train-tooltip">
+                                <strong>TN-401</strong><br>
+                                Next: Mulund<br>
+                                ETA: 14:35<br>
+                                On time
+                            </div>
+                        </div>
+                        
+                        <div class="train-marker delayed" style="left: 60%;" data-train="TN-203">
+                            <div class="train-icon">🚆</div>
+                            <div class="train-tooltip">
+                                <strong>TN-203</strong><br>
+                                Next: Vikhroli<br>
+                                ETA: 14:38<br>
+                                Delayed: +3min
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Right: Advisories & KPIs -->
+        <aside class="right-panel">
+            <!-- Advisory Feed -->
+            <section class="advisory-feed">
+                <div class="card">
+                    <h2 class="card-title">Live Advisories</h2>
+                    <div class="advisory-list">
+                        <div class="advisory-item high">
+                            <div class="advisory-header">
+                                <span class="advisory-priority">HIGH</span>
+                                <span class="advisory-time">14:31</span>
+                            </div>
+                            <p class="advisory-message">Platform conflict at Bhandup - TN-203 and TN-401 scheduled simultaneously</p>
+                            <p class="advisory-rationale">Delay TN-203 by 2 minutes to avoid platform congestion</p>
+                            <button class="apply-btn">Apply Resolution</button>
+                        </div>
+                        
+                        <div class="advisory-item medium">
+                            <div class="advisory-header">
+                                <span class="advisory-priority">MEDIUM</span>
+                                <span class="advisory-time">14:29</span>
+                            </div>
+                            <p class="advisory-message">High passenger load detected at Thane</p>
+                            <p class="advisory-rationale">Consider extending dwell time by 30 seconds</p>
+                            <button class="apply-btn">Apply Resolution</button>
+                        </div>
+                        
+                        <div class="advisory-item low">
+                            <div class="advisory-header">
+                                <span class="advisory-priority">LOW</span>
+                                <span class="advisory-time">14:27</span>
+                            </div>
+                            <p class="advisory-message">Track maintenance window approaching</p>
+                            <p class="advisory-rationale">No immediate action required</p>
+                            <button class="apply-btn applied" disabled>Acknowledged</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- KPI Cards -->
+            <section class="kpi-cards">
+                <div class="kpi-grid">
+                    <div class="kpi-card">
+                        <div class="kpi-header">
+                            <span class="kpi-title">Platform Utilization</span>
+                        </div>
+                        <div class="kpi-value">73%</div>
+                        <div class="kpi-trend positive">+2.1%</div>
+                    </div>
+                    
+                    <div class="kpi-card">
+                        <div class="kpi-header">
+                            <span class="kpi-title">On-time Performance</span>
+                        </div>
+                        <div class="kpi-value">94.2%</div>
+                        <div class="kpi-trend positive">+1.3%</div>
+                    </div>
+                    
+                    <div class="kpi-card">
+                        <div class="kpi-header">
+                            <span class="kpi-title">Conflicts Resolved</span>
+                        </div>
+                        <div class="kpi-value">12</div>
+                        <div class="kpi-trend negative">-2</div>
+                    </div>
+                    
+                    <div class="kpi-card">
+                        <div class="kpi-header">
+                            <span class="kpi-title">Passenger Impact</span>
+                        </div>
+                        <div class="kpi-value">Low</div>
+                        <div class="kpi-trend neutral">Stable</div>
+                    </div>
+                </div>
+            </section>
+        </aside>
+
+        <!-- Bottom: Timeline -->
+        <section class="timeline">
+            <div class="card">
+                <h2 class="card-title">Schedule Timeline</h2>
+                <div class="timeline-container">
+                    <div class="timeline-header">
+                        <div class="time-labels">
+                            <span>14:30</span>
+                            <span>14:35</span>
+                            <span>14:40</span>
+                            <span>14:45</span>
+                            <span>14:50</span>
+                        </div>
+                    </div>
+                    <div class="timeline-tracks">
+                        <div class="track-row">
+                            <span class="track-label">TN-401</span>
+                            <div class="track-timeline">
+                                <div class="schedule-bar planned" style="left: 10%; width: 30%;"></div>
+                                <div class="schedule-bar actual" style="left: 10%; width: 28%;"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="track-row">
+                            <span class="track-label">TN-203</span>
+                            <div class="track-timeline">
+                                <div class="schedule-bar planned" style="left: 25%; width: 35%;"></div>
+                                <div class="schedule-bar actual delayed" style="left: 30%; width: 35%;"></div>
+                                <div class="conflict-indicator" style="left: 25%; width: 10%;"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="track-row">
+                            <span class="track-label">TN-105</span>
+                            <div class="track-timeline">
+                                <div class="schedule-bar planned" style="left: 40%; width: 25%;"></div>
+                                <div class="schedule-bar actual" style="left: 42%; width: 25%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
