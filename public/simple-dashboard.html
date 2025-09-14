@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Train Dashboard</title>
+    <link rel="stylesheet" href="simple-styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <h1>🚂 Train Control Dashboard</h1>
+        <div class="controls">
+            <button id="playBtn" class="btn">▶️ Play</button>
+            <button id="pauseBtn" class="btn">⏸️ Pause</button>
+            <span class="time" id="currentTime">14:32:15</span>
+        </div>
+    </header>
+
+    <!-- Main Dashboard -->
+    <main class="dashboard">
+        <!-- Station Map -->
+        <section class="map-section">
+            <h2>🗺️ Station Map</h2>
+            <div class="station-line">
+                <div class="station" data-name="Central">
+                    <div class="station-icon">🏢</div>
+                    <span>Central</span>
+                </div>
+                
+                <div class="track">
+                    <div class="train" id="train1">🚊</div>
+                </div>
+                
+                <div class="station" data-name="Junction">
+                    <div class="station-icon">💎</div>
+                    <span>Junction</span>
+                </div>
+                
+                <div class="track">
+                    <div class="train" id="train2">🚋</div>
+                </div>
+                
+                <div class="station" data-name="Terminal">
+                    <div class="station-icon">🏢</div>
+                    <span>Terminal</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Status Cards -->
+        <section class="status-section">
+            <h2>📊 Live Status</h2>
+            <div class="status-cards">
+                <div class="card">
+                    <div class="card-icon">🎯</div>
+                    <div class="card-content">
+                        <h3>On Time</h3>
+                        <span class="value" id="onTimeValue">94.2%</span>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">⚠️</div>
+                    <div class="card-content">
+                        <h3>Delays</h3>
+                        <span class="value" id="delayValue">3</span>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">👥</div>
+                    <div class="card-content">
+                        <h3>Passengers</h3>
+                        <span class="value" id="passengerValue">1,245</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Alerts -->
+        <section class="alerts-section">
+            <h2>🚨 Active Alerts</h2>
+            <div class="alerts">
+                <div class="alert">
+                    <span class="alert-icon">⚠️</span>
+                    <div class="alert-content">
+                        <strong>Minor Delay</strong>
+                        <p>Train 205 delayed by 3 minutes at Junction</p>
+                        <button class="resolve-btn">✓ Resolve</button>
+                    </div>
+                </div>
+                
+                <div class="alert">
+                    <span class="alert-icon">🔧</span>
+                    <div class="alert-content">
+                        <strong>Maintenance</strong>
+                        <p>Platform 2 cleaning in progress</p>
+                        <button class="resolve-btn">✓ Resolve</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="simple-script.js"></script>
+</body>
+</html>
