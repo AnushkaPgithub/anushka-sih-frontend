@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Train Dashboard</title>
+    <link rel="stylesheet" href="profile-styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <h1>👤 User Profile</h1>
+        <nav class="nav">
+            <a href="simple-dashboard.html" class="nav-link">🚂 Dashboard</a>
+            <a href="profile.html" class="nav-link active">👤 Profile</a>
+        </nav>
+    </header>
+
+    <!-- Main Profile -->
+    <main class="profile-container">
+        <!-- Profile Card -->
+        <section class="profile-card">
+            <div class="avatar-section">
+                <div class="avatar">👨‍💼</div>
+                <button class="change-photo-btn">📷 Change Photo</button>
+            </div>
+            
+            <div class="profile-info">
+                <h2 id="userName">John Smith</h2>
+                <p class="role">🎯 Train Controller</p>
+                <p class="department">🏢 Central Operations</p>
+                <div class="status-badge">🟢 Online</div>
+            </div>
+        </section>
+
+        <!-- Settings Sections -->
+        <div class="settings-grid">
+            <!-- Personal Information -->
+            <section class="settings-section">
+                <h3>📝 Personal Information</h3>
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" id="fullName" value="John Smith" class="input-field">
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="email" value="john.smith@railway.com" class="input-field">
+                </div>
+                <div class="form-group">
+                    <label>Phone</label>
+                    <input type="tel" id="phone" value="+1 (555) 123-4567" class="input-field">
+                </div>
+                <button class="save-btn">💾 Save Changes</button>
+            </section>
+
+            <!-- Work Information -->
+            <section class="settings-section">
+                <h3>💼 Work Information</h3>
+                <div class="form-group">
+                    <label>Employee ID</label>
+                    <input type="text" id="employeeId" value="TC-2024-001" class="input-field" readonly>
+                </div>
+                <div class="form-group">
+                    <label>Department</label>
+                    <select id="department" class="input-field">
+                        <option>Central Operations</option>
+                        <option>Maintenance</option>
+                        <option>Safety & Security</option>
+                        <option>Customer Service</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Shift</label>
+                    <select id="shift" class="input-field">
+                        <option>Day Shift (06:00-14:00)</option>
+                        <option>Evening Shift (14:00-22:00)</option>
+                        <option>Night Shift (22:00-06:00)</option>
+                    </select>
+                </div>
+                <button class="save-btn">💾 Update Work Info</button>
+            </section>
+
+            <!-- Dashboard Preferences -->
+            <section class="settings-section">
+                <h3>⚙️ Dashboard Preferences</h3>
+                <div class="toggle-group">
+                    <label class="toggle-label">
+                        <input type="checkbox" id="soundAlerts" checked>
+                        <span class="toggle-slider"></span>
+                        🔊 Sound Alerts
+                    </label>
+                </div>
+                <div class="toggle-group">
+                    <label class="toggle-label">
+                        <input type="checkbox" id="emailNotifications" checked>
+                        <span class="toggle-slider"></span>
+                        📧 Email Notifications
+                    </label>
+                </div>
+                <div class="toggle-group">
+                    <label class="toggle-label">
+                        <input type="checkbox" id="darkMode">
+                        <span class="toggle-slider"></span>
+                        🌙 Dark Mode
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label>Auto-refresh Interval</label>
+                    <select id="refreshInterval" class="input-field">
+                        <option value="5">5 seconds</option>
+                        <option value="10" selected>10 seconds</option>
+                        <option value="30">30 seconds</option>
+                        <option value="60">1 minute</option>
+                    </select>
+                </div>
+                <button class="save-btn">💾 Save Preferences</button>
+            </section>
+
+            <!-- Quick Stats -->
+            <section class="settings-section">
+                <h3>📊 Your Stats</h3>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-icon">⏰</div>
+                        <div class="stat-content">
+                            <span class="stat-value">847</span>
+                            <span class="stat-label">Hours Worked</span>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon">✅</div>
+                        <div class="stat-content">
+                            <span class="stat-value">234</span>
+                            <span class="stat-label">Issues Resolved</span>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon">🎯</div>
+                        <div class="stat-content">
+                            <span class="stat-value">98.5%</span>
+                            <span class="stat-label">Accuracy Rate</span>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon">🏆</div>
+                        <div class="stat-content">
+                            <span class="stat-value">Gold</span>
+                            <span class="stat-label">Performance Level</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="profile-script.js"></script>
+</body>
+</html>
